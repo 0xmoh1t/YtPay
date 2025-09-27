@@ -54,18 +54,54 @@ const SearchChannel = () => {
       {channel && (
         <div
           style={{
-            marginTop: "20px",
-            display: "inline-block",
-            textAlign: "center",
-            border: "1px solid #ccc",
-            padding: "20px",
-            borderRadius: "10px",
+            margin: "20px auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            background: "rgba(255,255,255,0.1)",
+            padding: "30px",
+            borderRadius: "15px",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255,255,255,0.2)",
+            width: "400px",
+            color: "white",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.1)"
           }}
         >
-          <img src={channel.logo} alt={channel.name} />
-          <h3>{channel.name}</h3>
-          <p>Channel ID: {channel.id}</p>
-          <p>Subscribers: {Number(channel.subscribers).toLocaleString()}</p>
+          <img 
+            src={channel.logo} 
+            alt={channel.name} 
+            style={{
+              width: "80px",
+              height: "80px",
+              borderRadius: "50%",
+              marginBottom: "15px",
+              border: "2px solid rgba(255,255,255,0.3)"
+            }}
+          />
+          <h3 style={{ 
+            color: "#ffff", 
+            marginBottom: "10px",
+            fontSize: "1.5rem",
+            fontWeight: "bold"
+          }}>
+            {channel.name}
+          </h3>
+          <p style={{ 
+            margin: "5px 0", 
+            opacity: "0.8",
+            fontSize: "0.9rem"
+          }}>
+            Channel ID: {channel.id}
+          </p>
+          <p style={{ 
+            margin: "5px 0", 
+            fontSize: "1.1rem",
+            fontWeight: "600",
+            color: "#4CAF50"
+          }}>
+            Subscribers: {Number(channel.subscribers).toLocaleString()}
+          </p>
         </div>
       )}
     </div>

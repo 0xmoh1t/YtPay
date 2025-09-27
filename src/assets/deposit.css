@@ -1,0 +1,23 @@
+.body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+}
+
+.receiveLogoContainer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 21px;
+      height: 200px;
+      width: 200px;
+      border-radius: 2px;
+      border-style:solid;
+      margin-bottom: 20px;
+}
+h1{
+      color: black;
+}
