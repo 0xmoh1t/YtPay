@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract YTPay is Ownable, ReentrancyGuard {
-    IERC20 public immutable pyUSDC;
+    IERC20 public immutable pyUSD;  // changed name here
 
     struct Channel {
         address wallet;
@@ -21,8 +21,8 @@ contract YTPay is Ownable, ReentrancyGuard {
     event ChannelRegistered(bytes32 indexed key, string channelId, address wallet);
     event FundsReleased(bytes32 indexed key, string channelId, address wallet, uint256 amount);
 
-    constructor(address _pyUSDC) {
-        pyUSDC = IERC20(_pyUSDC);
+    constructor(address _pyUSD) {
+        pyUSD = IERC20(_pyUSD);  // changed name here
     }
 
     function _key(string memory channelId) internal pure returns (bytes32) {
@@ -33,11 +33,11 @@ contract YTPay is Ownable, ReentrancyGuard {
         require(amount > 0, "Invalid amount");
         bytes32 k = _key(channelId);
 
-        require(pyUSDC.transferFrom(msg.sender, address(this), amount), "Transfer failed");
+        require(pyUSD.transferFrom(msg.sender, address(this), amount), "Transfer failed"); // changed name here
 
         Channel storage ch = channels[k];
         if (ch.registered && ch.wallet != address(0)) {
-            pyUSDC.transfer(ch.wallet, amount);
+            pyUSD.transfer(ch.wallet, amount); // changed name here
             emit PaymentSent(k, channelId, msg.sender, ch.wallet, amount);
         } else {
             ch.locked += amount;
@@ -58,7 +58,7 @@ contract YTPay is Ownable, ReentrancyGuard {
         if (ch.locked > 0) {
             uint256 amt = ch.locked;
             ch.locked = 0;
-            pyUSDC.transfer(wallet, amt);
+            pyUSD.transfer(wallet, amt); // changed name here
             emit FundsReleased(k, channelId, wallet, amt);
         }
     }
@@ -68,4 +68,4 @@ contract YTPay is Ownable, ReentrancyGuard {
         Channel storage ch = channels[k];
         return (ch.wallet, ch.registered, ch.locked);
     }
-} 
+}
