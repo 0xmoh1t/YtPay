@@ -1,0 +1,118 @@
+/* SearchChannel.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh; /* full page */
+  padding: 50px 20px;
+}
+
+.heading {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #fff;
+}
+
+.search-input {
+  padding: 15px;
+  width: 350px;
+  border-radius: 15px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-button {
+  padding: 15px 30px;
+  margin-left: 15px;
+  border-radius: 15px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.error {
+  color: #ff4d4f;
+}
+
+.success {
+  color: #4fff4d;
+}
+
+.channel-card {
+  margin-top: 30px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 20px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.channel-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.channel-card h3 {
+  margin: 15px 0;
+}
+
+.payment-input {
+  padding: 10px 15px;
+  width: 180px;
+  border-radius: 15px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  outline: none;
+  margin-right: 15px;
+}
+
+.payment-button {
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
