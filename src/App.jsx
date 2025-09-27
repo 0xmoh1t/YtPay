@@ -1,31 +1,23 @@
-import { ConnectButton } from "thirdweb/react";
-import { inAppWallet } from "thirdweb/wallets";
-import { sepolia } from "thirdweb/chains";
-import { client } from "./client";
+import React from "react";
+import { useActiveAccount } from "thirdweb/react"; 
+import ConnectWallet from "./pages/connectwallet";
+import SearchChannel from './pages/SearchChannel';
 
-function App() {
+export default function App() {
+  const account = useActiveAccount();
+
   return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
-      <ConnectButton
-        accountAbstraction={{
-          chain: sepolia, // ✅ Change if you want another chain
-          sponsorGas: true,
-        }}
-        client={client}
-        connectModal={{
-          showThirdwebBranding: false,
-          size: "compact",
-        }}
-        wallets={[
-          inAppWallet({
-            auth: {
-              options: ["google", "x", "passkey", "phone", "email"],
-            },
-          }),
-        ]}
-      />
+    <div>
+      <header style={{ textAlign: "center", marginTop: "20px" }}>
+        <h1>Welcome</h1>
+      <ConnectWallet />
+      </header>
+
+      {account && (
+        <div style={{ marginTop: "30px" }}>
+          <SearchChannel />
+        </div>
+      )}
     </div>
   );
 }
-
-export default App;
