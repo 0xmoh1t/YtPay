@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { useActiveAccount } from "thirdweb/react"; 
-import ConnectWallet from "./pages/connectwallet";
-import SearchChannel from './pages/SearchChannel';
-
-export default function App() {
-  const account = useActiveAccount();
-
-  return (
-    <div>
-      <header style={{ textAlign: "center", marginTop: "20px" }}>
-        <h1>Welcome</h1>
-      <ConnectWallet />
-      </header>
-
-      {account && (
-        <div style={{ marginTop: "30px" }}>
-          <SearchChannel />
-        </div>
-=======
 import React, { useState } from "react";
 import ConnectWallet from "./pages/ConnectWallet";
 import SearchChannel from "./pages/SearchChannel";
@@ -27,24 +6,51 @@ export default function App() {
   const [account, setAccount] = useState(null); // store connected wallet
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif" }}>
-      <header style={{ textAlign: "center", marginTop: "20px" }}>
-        <h1>Welcome to YT Pay</h1>
-        {/* Connect MetaMask */}
+    <div style={{ 
+      fontFamily: "Arial, sans-serif",
+      minHeight: "100vh",
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      color: "white",
+      margin: 0,
+      padding: 0,
+      boxSizing: "border-box"
+    }}>
+      {/* Centered Welcome Section */}
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "60vh",
+        width: "100%",
+        textAlign: "center",
+        padding: "40px 20px",
+        boxSizing: "border-box"
+      }}>
+        <h1 style={{ 
+          fontSize: "3rem", 
+          marginBottom: "2rem",
+          color: "white",
+          fontWeight: "bold"
+        }}>
+          Welcome to YT Pay
+        </h1>
         <ConnectWallet onConnect={setAccount} />
-      </header>
+      </div>
 
       {/* Show Search & Pay section only if wallet connected */}
-      {account ? (
-        <div style={{ marginTop: "30px" }}>
-          <p style={{ textAlign: "center" }}>Connected Wallet: {account}</p>
+      {account && (
+        <div style={{ 
+          padding: "10px 20px",
+          width: "100%",
+          color: "white",
+          boxSizing: "border-box"
+        }}>
           <SearchChannel />
         </div>
-      ) : (
-        <p style={{ textAlign: "center", marginTop: "20px", color: "gray" }}>
-          Please connect your MetaMask wallet to search and pay channels.
-        </p>
->>>>>>> anand
       )}
     </div>
   );
